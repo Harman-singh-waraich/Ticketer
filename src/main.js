@@ -2,21 +2,8 @@ import React from "react";
 import reactDOM from "react-dom";
 // import "./ant.css";
 import Home from './home/home.js'
-import back1 from './back1.jpg'
-import  redeemBack from './img/redeemBack.jpg'
-import home from './img/home1.jpg'
-import generateBack from './img/generateBack2.jpg'
 import { Menu, Dropdown, message,Layout,Carousel,Avatar,Popover,Button } from 'antd';
-import {
-  DownOutlined,
-  HomeTwoTone,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  IdcardTwoTone,
-  DollarCircleTwoTone,
-  TagTwoTone,
-  UserOutlined,
-} from '@ant-design/icons';
+
 import ItemForm from './generateItem/generateItem.js';
 import Explore from './explore/explore.js';
 import UserItems from './items/useritems.js';
@@ -45,13 +32,12 @@ class Main extends React.Component {
     this.setState({Content:<Explore buyToken={this.props.buyToken}
                                     welcomeToken={this.props.welcomeToken}
                                     offerValid={this.props.offerValid}
-                                    account={this.props.account}/>,background: `url(${back1})`})
+                                    account={this.props.account}/>})
   console.log("ran");
   }
   generate = ()=>{
    {this.setState({Content:<ItemForm generateItem={this.props.generateItem}
-                                     getItem={this.props.getItem}/>,
-                                     background:`url(${generateBack})`})}
+                                     getItem={this.props.getItem}/>})}
   }
 
   toggle = () => {
@@ -64,7 +50,7 @@ class Main extends React.Component {
 
 
     return (<div>
-      <nav class="navbar navbar-light mbr-navbar navbar-fixed-top" id="menu-e" data-rv-view="16" style={{backgroundColor: "rgb(254, 213, 197)"}}>
+      <nav class="navbar navbar-light mbr-navbar" id="menu-e" data-rv-view="16" style={{backgroundColor: "rgb(254, 213, 197)"}}>
         <div class="container">
             <button class="navbar-toggler pull-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
                 <div class="hamburger-icon"></div>
@@ -77,7 +63,7 @@ class Main extends React.Component {
 
 
 
-                <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"><a class="nav-link" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent"></span>Home</a></li><li class="nav-item"><a class="nav-link" href="page2.html"><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent"></span>Generate</a></li> <li class="nav-item"><a class="nav-link" href="page3.html"><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent"></span>Redeem</a></li>  </ul>
+                <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"><a class="nav-link" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent"></span>Home</a></li><li class="nav-item"><a class="nav-link" onClick={()=>{this.generate()}}><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent"></span>Generate</a></li> <li class="nav-item"><a class="nav-link" href="page3.html"><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent"></span>Redeem</a></li>  </ul>
             </div>
         </div>
     </nav>
