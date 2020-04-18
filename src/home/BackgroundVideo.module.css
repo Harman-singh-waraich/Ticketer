@@ -1,0 +1,48 @@
+.Container {
+    position: relative;
+    min-height: 500px;
+    max-height: 1000px;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    height: 85vh;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+@media (min-width: 768px)
+.content {
+    max-width: 720px;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+.Video {
+    position: absolute;
+    z-index: 0;
+    min-width: 100%;
+    min-height: 100%;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 2000ms
+  }
+
+  /* Add some content at the bottom of the video/page */
+  .Content {
+    padding-top: 120px;
+    position: relative;
+    top: 0;
+    color:#f1f1f1;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    box-sizing: inherit;
+    display: block;
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+  }
+/* <iframe id="iframe_YTP_1587201492578" class="playerBox" style="position: absolute; z-index: 0; width: 937px; height: 527px; top: 0px; left: 0px; overflow: hidden; opacity: 1; user-select: none; margin-top: 0px; margin-left: -91px; max-width: initial; transition-property: opacity; transition-duration: 1000ms;" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/NCr7NdOJgw?modestbranding=1&amp;autoplay=0&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;version=3&amp;playerapiid=iframe_YTP_1587201492578&amp;origin=*&amp;allowfullscreen=true&amp;wmode=transparent&amp;iv_load_policy=3&amp;html5=1&amp;widgetid=1" unselectable="on"></iframe><div class="YTPOverlay" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"></div></div> */

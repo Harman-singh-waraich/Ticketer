@@ -1,13 +1,113 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
+  <Layout className="menu">
+    <Sider theme="light" trigger={null} collapsible collapsed={this.state.collapsed} >
+      <Menu mode="inline" defaultSelectedKeys={['1']} style={{float:'right'}}>
+
+        <Menu.Item key="1">
+        <HomeTwoTone style={{fontSize:this.state.collapsed ? "32px":"16px"}}
+                     onClick={()=> {this.setState({Content:"",background:`url(${home})`})}}/>
+          <span onClick={()=> {this.setState({Content:"",background:`url(${home})`})}} style={{paddingRight:90}}>Home</span>
+        </Menu.Item>
+
+        <Menu.Item key="2">
+          <IdcardTwoTone style={{fontSize:this.state.collapsed ? "32px":"16px"}}
+                                 onClick={()=> {this.setState({Content:<ItemForm generateItem={this.props.generateItem} getItem={this.props.getItem}/>,background:`url(${generateBack})`})}}/>
+          <span onClick={()=> {this.setState({Content:<ItemForm generateItem={this.props.generateItem} getItem={this.props.getItem}/>,background:`url(${generateBack})`})}} style={{paddingRight:30}}>Generate Item</span>
+        </Menu.Item>
+
+        <Menu.Item key="3">
+          <DollarCircleTwoTone style={{fontSize:this.state.collapsed ? "32px":"16px"}}
+          onClick={()=> {this.setState({Content:<Items account = {this.props.account}
+                                                             getItem={this.props.getItem}
+                                                             getItems={this.props.getItems}
+                                                             redeemItem={this.props.redeemItem}
+                                                             buyToken={this.props.buyToken}
+                                                             getAllItems = {this.props.getAllItems}
+                                                             getUserItems = {this.props.getUserItems}
+                                                             />,
+                                              background:`url(${redeemBack})`})}}/>
+          <span onClick={()=> {this.setState({Content:<Items account = {this.props.account}
+                                                             getItem={this.props.getItem}
+                                                             getItems={this.props.getItems}
+                                                             redeemItem={this.props.redeemItem}
+                                                             buyToken={this.props.buyToken}
+                                                             getAllItems = {this.props.getAllItems}
+                                                             getUserItems = {this.props.getUserItems}
+                                                             />,
+                                              background:`url(${redeemBack})`})}}
+                                                             style={{paddingRight:80}}>Redeem</span>
+        </Menu.Item>
+
+        <Menu.Item key="4">
+          <TagTwoTone style={{fontSize:this.state.collapsed ? "32px":"16px"}}
+          onClick={()=>{this.setState({Content:<Explore buyToken={this.props.buyToken}
+                                                              welcomeToken={this.props.welcomeToken}
+                                                              offerValid={this.props.offerValid}
+                                                              account={this.props.account}/>,background: `url(${back1})`})}}/>
+          <span onClick={()=>{this.setState({Content:<Explore buyToken={this.props.buyToken}
+                                                              welcomeToken={this.props.welcomeToken}
+                                                              offerValid={this.props.offerValid}
+                                                              account={this.props.account}/>,background: `url(${back1})`})}} style={{paddingRight:80}} >Explore </span>
+        </Menu.Item>
+      </Menu>
+    </Sider>
+    <Layout className="site-layout">
+      <Header className="site-layout-background" style={{ padding: 0 ,height:"40px"}}>
+       <div >
+        {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+          className: 'trigger',
+          onClick: this.toggle,
+          style:{fontSize:'40px',marginRight:20},
+        })}
+        <div style={{float:"right"}}>
+        <Dropdown overlay={menu}  trigger={['click']}>
+        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+          <Avatar size="large"
+                  icon={<UserOutlined/>}
+                  style={{
+                    verticalAlign: 'top',
+                  }}/>
+      </a>
+    </Dropdown>
+
+        </div>
+
+        <div style={{float:"right"}}>
+          {this.props.account}
+        </div>
+        </div>
+     </Header>
+     <div className="test"             style={{
+                   padding: 24,
+                   height:"100vh",
+                   backgroundImage: this.state.background,
+                   backgroundSize:"cover"
+                 }}>
+
+      <Content
+        className="site-layout-background-content"
+
+      >
+        {this.state.Content}
+      </Content>
     </div>
-  );
-}
+    </Layout>
+  </Layout>
+//////////////////////////////////////////////////
+const onClick = ({key}) => {
+  if(key=="1"){
+      message.info(`Balance: ${this.props.balance} TOK`);
+    }
+};
 
-export default App;
+const menu = (
+  <Menu  onClick={onClick} >
+    <Menu.Item key="1"  >
+          <Popover placement="left" content={this.props.balance} >
+            Balance
+          </Popover></Menu.Item>
+    <Menu.Item key="2" onClick={()=>{this.setState({Content:<UserItems getUserItems = {this.props.getUserItems}
+                                                                       itemDetailed = {this.itemDetailed}
+                                                                       account={this.props.account}/>})}}>My items</Menu.Item>
+  </Menu>
+);

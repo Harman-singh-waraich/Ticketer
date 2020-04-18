@@ -1,0 +1,79 @@
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.site-layout .site-layout-background {
+  background: lightyellow;
+  height: 80vh;
+}
+.site-layout .test {
+  height: 80vh;
+}
+.menu {
+  background:#fff
+}
+.sk-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .ant-carousel .slick-slide {
+    text-align: center;
+    height: 200px;
+    background: #364d79;
+    overflow: hidden;
+  }
+  .ant-carousel .slick-slide .first{
+    text-align: center;
+    height: 200px;
+    background: #364d79;
+    overflow: hidden;
+    background-image: url("./back1.jpg");
+  }
+  .ant-carousel .slick-slide .first{
+    text-align: center;
+    height: 200px;
+    background: #364d79;
+    overflow: hidden;
+    background-image: url("./back1.jpg");
+  }
+  .ant-carousel .slick-slide .second{
+    text-align: center;
+    height: 200px;
+    background: #364d79;
+    overflow: hidden;
+    background-image: url("./back2.png");
+  }
+  .ant-carousel .slick-slide .third{
+    text-align: center;
+    height: 200px;
+    background: #364d79;
+    overflow: hidden;
+    background-image: url("./bak3.png");
+  }
+  .ant-carousel .slick-slide .fourth{
+    text-align: center;
+    height: 200px;
+    background: #364d79;
+    overflow: hidden;
+    background-image: url("./back4.png");
+  }
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
+  .ant-carousel .slick-slide h4 {
+    color: #fff;
+  }
