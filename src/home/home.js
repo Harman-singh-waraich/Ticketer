@@ -22,7 +22,7 @@ class Home extends React.Component{
 
                         <h1 class="mbr-section-title display-1">Ticketer</h1>
                         <p class="lead">A Blockchain-based learning and redeeming app.</p>
-                        <div class="mbr-buttons--left"><a class="btn btn-lg btn-info" href="page1.html#content5-c">Explore</a> </div>
+                        <div class="mbr-buttons--left"><a class="btn btn-lg btn-info" onClick={this.props.explore}>Explore</a> </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ class Home extends React.Component{
                     <h3 class="mbr-section-title display-4">Redeem Items</h3>
 
                     <div class="lead"><p>Tokens you earn can be redeemed in Redeem store!</p><p><br/>/</p></div>
-                    <div><a class="btn btn-lg btn-black-outline btn-black" href="page3.html">Store</a></div>
+                    <div><a class="btn btn-lg btn-black-outline btn-black" onClick={this.props.redeem}>Store</a></div>
                 </div>
                 <div class="col-xs-12 col-lg-9 mbr-table-cell-lg image-size" style={{width: "25%"}}>
                     <div class="mbr-figure"><img src="assets/images/joel-filipe-ju9vazdgmzs-unsplash-1400x1336.jpeg"/></div>
@@ -77,7 +77,7 @@ class Home extends React.Component{
                     <h3 class="mbr-section-title display-4">Create</h3>
 
                     <div class="lead"><p>Create items that can be then redeemed.</p><p><br/></p></div>
-                    <div><a class="btn btn-lg btn-secondary-outline" href="page2.html#form1-7">Create</a></div>
+                    <div><a class="btn btn-lg btn-secondary-outline" onClick={this.props.generate}>Create</a></div>
                 </div>
 
             </div>

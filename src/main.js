@@ -19,7 +19,7 @@ class Main extends React.Component {
      super(props)
      this.state = {
        collapsed: false,
-       Content:<Home explore={this.explore}  generate={this.generate}/>
+       Content:<Home explore={this.explore}  generate={this.generate} redeem={this.redeem}/>
      };
    }
   balance = ()=>{
@@ -27,6 +27,10 @@ class Main extends React.Component {
   }
   itemDetailed = (item)=>{
     this.setState({Content:<Demo item={item} getCredentials={this.props.getCredentials} />})
+  }
+  home = ()=>{
+    this.setState({Content:<Home explore={this.explore}  generate={this.generate}
+                         redeem={this.redeem}/>})
   }
   explore = ()=>{
     this.setState({Content:<Explore buyToken={this.props.buyToken}
@@ -66,7 +70,7 @@ class Main extends React.Component {
 
 
 
-                <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"><a class="nav-link" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent"></span>Home</a></li><li class="nav-item"><a class="nav-link" onClick={()=>{this.generate()}}><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent"></span>Generate</a></li> <li class="nav-item"><a class="nav-link" onClick={this.redeem}><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent"></span>Redeem</a></li>  </ul>
+                <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"><a class="nav-link" onClick={()=>{this.home()}} ><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent"></span>Home</a></li><li class="nav-item"><a class="nav-link" onClick={()=>{this.generate()}}><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent"></span>Generate</a></li> <li class="nav-item"><a class="nav-link" onClick={this.redeem}><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent"></span>Redeem</a></li>  </ul>
             </div>
         </div>
     </nav>
