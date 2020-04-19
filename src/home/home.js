@@ -41,7 +41,7 @@ class Home extends React.Component{
                     <h3 class="mbr-section-title display-4">Learn And Teach</h3>
 
                     <div class="lead"><p>With Ticketer you can educate yourself and others to earn redeemable Tokens!</p></div>
-                    <div><a class="btn btn-lg btn-black-outline btn-black" href="page1.html#content5-c">Let's Go</a></div>
+                    <div><a class="btn btn-lg btn-black-outline btn-black" onClick={this.props.explore}>Let's Go</a></div>
                 </div>
 
             </div>

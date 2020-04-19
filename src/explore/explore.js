@@ -38,7 +38,7 @@ class Explore extends React.Component{
                 <div className="site-button-ghost-wrapper" >
                             <h2 style={{color:"#fff"}} >Claim your first time reward!</h2>
                             <div align="center" >
-                             <Button onClick={()=>{this.welcomeToken()}} style={{color:"balck"}}ghost>Claim!</Button>
+                             <Button onClick={()=>{this.welcomeToken()}} style={{color:"black"}}ghost>Claim!</Button>
                             </div>
                            <h1 style={{color:"#fff"}}>More content coming soon!!!</h1>
                         </div>
