@@ -39,13 +39,16 @@ class Main extends React.Component {
    {this.setState({Content:<ItemForm generateItem={this.props.generateItem}
                                      getItem={this.props.getItem}/>})}
   }
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
+  redeem =()=>{
+    this.setState({Content:<Items account = {this.props.account}
+                                                       getItem={this.props.getItem}
+                                                       getItems={this.props.getItems}
+                                                       redeemItem={this.props.redeemItem}
+                                                       buyToken={this.props.buyToken}
+                                                       getAllItems = {this.props.getAllItems}
+                                                       getUserItems = {this.props.getUserItems}
+                                                       />})
+  }
   render(){
 
 
@@ -63,7 +66,7 @@ class Main extends React.Component {
 
 
 
-                <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"><a class="nav-link" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent"></span>Home</a></li><li class="nav-item"><a class="nav-link" onClick={()=>{this.generate()}}><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent"></span>Generate</a></li> <li class="nav-item"><a class="nav-link" href="page3.html"><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent"></span>Redeem</a></li>  </ul>
+                <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"><a class="nav-link" href="index.html"><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent"></span>Home</a></li><li class="nav-item"><a class="nav-link" onClick={()=>{this.generate()}}><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent"></span>Generate</a></li> <li class="nav-item"><a class="nav-link" onClick={this.redeem}><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent"></span>Redeem</a></li>  </ul>
             </div>
         </div>
     </nav>
