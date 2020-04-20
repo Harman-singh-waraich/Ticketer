@@ -56,7 +56,7 @@ class Home extends React.Component{
                 <div class="col-xs-12 col-lg-3 mbr-inner-padding text-xs-center mbr-table-cell-lg">
                     <h3 class="mbr-section-title display-4">Redeem Items</h3>
 
-                    <div class="lead"><p>Tokens you earn can be redeemed in Redeem store!</p><p><br/>/</p></div>
+                    <div class="lead"><p>Tokens you earn can be redeemed in Redeem store!</p><p><br/></p></div>
                     <div><a class="btn btn-lg btn-black-outline btn-black" onClick={this.props.redeem}>Store</a></div>
                 </div>
                 <div class="col-xs-12 col-lg-9 mbr-table-cell-lg image-size" style={{width: "25%"}}>

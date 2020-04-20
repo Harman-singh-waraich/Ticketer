@@ -1,5 +1,6 @@
 import React from "react";
 import reactDOM from "react-dom";
+import green from'./beige.png'
 import { Descriptions, Radio } from 'antd';
 
 class Demo extends React.Component {
@@ -16,7 +17,7 @@ class Demo extends React.Component {
     d.setUTCSeconds(utcSeconds);
     this.getCredentials(this.props.item)
     return (
-      <div>
+      <div style={{background:`url(${green})`,height:"85vh",paddingTop:"81px",paddingLeft:"30px"}}>
        <h1 style={{fontSize:49}}>{this.props.item._name}</h1>
         <Descriptions bordered    column={1} style={{fontSize:300}}>
           <Descriptions.Item label="Product" >{this.props.item._name}</Descriptions.Item>

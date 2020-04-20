@@ -1,7 +1,10 @@
 import React from "react";
 import reactDOM from "react-dom";
-import { List, Avatar } from 'antd';
+import green from './green.png'
+import { List, Avatar,Typography } from 'antd';
 import ticket from './ticket.jpg'
+const {Title,Paragraph} = Typography;
+
 const data = [
   {
     title: 'Ant Design Title 1',
@@ -49,19 +52,25 @@ class UserItems extends React.Component{
     this.setState({userItems:userItems})
   }
   render(){
-  return  <List
-      itemLayout="horizontal"
-      dataSource={this.state.userItems}
-      renderItem={item => (
-        <List.Item>
-          <List.Item.Meta
-            avatar={<Avatar src={ticket} />}
-            title={<a onClick={()=>{this.props.itemDetailed(item)}}>{item._name}</a>}
-            description= {<Time _time={item._dated}/>}
-          />
-        </List.Item>
+  return <div style={{background:`url(${green})`,height:"85vh"}}>
+      <List
+        style={{paddingTop:"80px",paddingLeft:"20px",backgroundImage:`${green}`}}
+        itemLayout="horizontal"
+        dataSource={this.state.userItems}
+        renderItem={item => (
+          <List.Item>
+            <List.Item.Meta
+              avatar={<Avatar src={ticket} />}
+              title={<Title level={3} style={{marginBottom:"10px"}}
+                            onClick={()=>{this.props.itemDetailed(item)}}>
+                                {item._name}
+                            </Title>}
+              description= {<Paragraph strong><Time _time={item._dated}/></Paragraph>}
+              />
+            </List.Item>
       )}
     />
+    </div>
   }
 }
 
