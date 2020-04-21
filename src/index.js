@@ -17,6 +17,7 @@ class Reddit extends React.Component{
 			Token:"",
 			Redeem:"",
       buyView:true,
+      newItem:0
 	 	};
  }
 
@@ -88,7 +89,7 @@ class Reddit extends React.Component{
     }
 
     getCredentials = async (item) =>{
-      let credentials = await this.state.Redeem.methods.getCredentials(item).call()
+      let credentials = await this.state.Redeem.methods.getCredentials(item,this.state.account).call()
       return credentials
     }
 
@@ -108,6 +109,7 @@ class Reddit extends React.Component{
     let n_account = await window.web3.eth.getAccounts()
     let self = this;
     window.ethereum.on('accountsChanged', function (accounts) {
+      window.location.reload();
       self.setState({account:accounts[0]})
     })
   },1000)
@@ -125,10 +127,21 @@ class Reddit extends React.Component{
       this.setState({loading:false})
     })
   }
+
+  increaseCount=()=>{
+    let initialCount = this.state.newItem
+    let newCount = initialCount+1
+    this.setState({newItem:newCount})
+  }
+  resetCount=()=>{
+    this.setState({newItem:0})
+  }
 	redeemItem = (name)=>{
 		this.setState({loading:true})
 		this.state.Token.methods.approve(this.state.Redeem._address,200).send({from:this.state.account,gas:200000}).then(()=>{
 			this.state.Redeem.methods.redeemItem(name,this.state.account).send({from:this.state.account,gas:200000}).then(()=>{
+        this.increaseCount()
+        this.getBalance()
         this.setState({loading:false})
       }).catch((e)=>{
         alert(e.message)
@@ -158,7 +171,9 @@ else{
                   getUserItems={this.getUserItems}
                   getCredentials = {this.getCredentials}
                   welcomeToken ={this.welcomeToken}
-                  offerValid = {this.offerValid} />
+                  offerValid = {this.offerValid}
+                  count = {this.state.newItem}
+                  resetCount={this.resetCount}/>
 }
 return   <div>
            {content}

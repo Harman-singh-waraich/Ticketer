@@ -1,7 +1,8 @@
 import React from "react";
 import reactDOM from "react-dom";
 import green from'./beige.png'
-import { Descriptions, Radio } from 'antd';
+import { Breadcrumb,Descriptions, Radio } from 'antd';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 
 class Demo extends React.Component {
   state = {
@@ -18,6 +19,17 @@ class Demo extends React.Component {
     this.getCredentials(this.props.item)
     return (
       <div style={{background:`url(${green})`,height:"85vh",paddingTop:"81px",paddingLeft:"30px"}}>
+
+        <Breadcrumb style={{float:"top"}}>
+          <Breadcrumb.Item href="">
+            <UserOutlined />
+          </Breadcrumb.Item>
+          <a><Breadcrumb.Item  onClick={this.props.myItems}>
+            <span>My items</span>
+          </Breadcrumb.Item></a>
+          <Breadcrumb.Item>Item</Breadcrumb.Item>
+        </Breadcrumb>
+        <br/>
        <h1 style={{fontSize:49}}>{this.props.item._name}</h1>
         <Descriptions bordered    column={1} style={{fontSize:300}}>
           <Descriptions.Item label="Product" >{this.props.item._name}</Descriptions.Item>

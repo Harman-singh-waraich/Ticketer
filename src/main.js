@@ -2,7 +2,7 @@ import React from "react";
 import reactDOM from "react-dom";
 // import "./ant.css";
 import Home from './home/home.js'
-import { Menu, Dropdown, message,Layout,Carousel,Avatar,Popover,Button } from 'antd';
+import { Badge,Menu, Dropdown, message,Layout,Carousel,Avatar,Popover,Button } from 'antd';
 import {UserOutlined } from '@ant-design/icons';
 import ItemForm from './generateItem/generateItem.js';
 import Explore from './explore/explore.js';
@@ -27,7 +27,8 @@ class Main extends React.Component {
     this.props.getBalance()
   }
   itemDetailed = (item)=>{
-    this.setState({Content:<Demo item={item} getCredentials={this.props.getCredentials} />})
+    this.setState({Content:<Demo item={item} getCredentials={this.props.getCredentials}
+                                 myItems={this.content} account={this.props.account}/>})
   }
   home = ()=>{
     this.setState({Content:<Home explore={this.explore}  generate={this.generate}
@@ -38,7 +39,6 @@ class Main extends React.Component {
                                     welcomeToken={this.props.welcomeToken}
                                     offerValid={this.props.offerValid}
                                     account={this.props.account}/>})
-  console.log("ran");
   }
   generate = ()=>{
    {this.setState({Content:<ItemForm generateItem={this.props.generateItem}
@@ -53,7 +53,14 @@ class Main extends React.Component {
                                                        getAllItems = {this.props.getAllItems}
                                                        getUserItems = {this.props.getUserItems}
                                                        />})
+                                                     }
+  content =()=>{
+    this.setState({Content:<UserItems getUserItems = {this.props.getUserItems}
+                                                      itemDetailed = {this.itemDetailed}
+                                                      account={this.props.account}/>})
+
   }
+
   render(){
 
     const menu = (
@@ -64,9 +71,7 @@ class Main extends React.Component {
         <Menu.Item key="2"  >
                 Account : {this.props.account}
         </Menu.Item>
-        <Menu.Item key="3" onClick={()=>{this.setState({Content:<UserItems getUserItems = {this.props.getUserItems}
-                                                                         itemDetailed = {this.itemDetailed}
-                                                                           account={this.props.account}/>})}}>My items</Menu.Item>
+        <Menu.Item key="3" onClick={()=>{this.content();this.props.resetCount()}}><Badge count={this.props.count}dot>My items</Badge></Menu.Item>
       </Menu>
     );
 
@@ -78,7 +83,7 @@ class Main extends React.Component {
             <div class="clearfix"></div>
             <div class="collapse navbar-toggleable-sm" id="exCollapsingNavbar2">
 
-              <span class="navbar-logo"><Dropdown overlay={menu} style={{width:"200px",height:"300px"}} trigger={['click']}><a><img src={user} alt="Mobirise" style={{height:"60px",width:"50px",paddingTop:"12px"}}/></a></Dropdown></span>
+              <span class="navbar-logo"><Dropdown overlay={menu} style={{width:"200px",height:"300px"}} trigger={['click']}><Badge count={this.props.count}dot><a><img src={user} alt="Mobirise" style={{height:"60px",width:"50px",paddingTop:"12px"}}/></a></Badge></Dropdown></span>
 
             <span><a class="navbar-brand" href="https://mobirise.com">Ticketer</a></span>
 

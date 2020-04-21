@@ -12,7 +12,7 @@ class ItemForm extends React.Component  {
       alert("please fill the form properly")
     }else{
     let price = parseInt(this.state.price)
-    this.props.generateItem(this.state.name,this.state.type,price,this.state.description)
+    this.props.generateItem(this.state.type,this.state.name,price,this.state.description)
   }
 };
 render(){
@@ -21,11 +21,11 @@ render(){
       <div class="container">
           <div class="row">
               <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
-                  <h2 class="mbr-section-title display-3 text-xs-center">Generate Form</h2>
+                  <h2 class="mbr-section-title display-3 text-xs-center">Generate Item</h2>
                   <form onSubmit={(e)=>{e.preventDefault();this.onFinish()}}  data-form-title="Contact Form">
                       <input type="hidden" value="vPqJgzEG8OpSx8y1t6d9Lgg2QZAEVdNvw6pIc4vG7zVNpULUhRssbI1oKUNRiptQHahqyr52nH8tEDGhUtZydb0dzJ/kM7BCWRsVKLhFl5WagqDxGqU5EW5GetjF0LQr" data-form-email="true"/>
                       <div class="form-group">
-                          <input type="text" class="form-control" name="name" required="" placeholder="Name*" onChange={(e)=>{this.setState({name:e.target.value});console.log(this.state)}} data-form-field="Name"/>
+                          <input type="text" class="form-control" name="name" required="" placeholder="Name of item*" onChange={(e)=>{this.setState({name:e.target.value});console.log(this.state)}} data-form-field="Name"/>
                       </div>
                       <div class="form-group">
                           <input type="text" class="form-control" name="type" required="" placeholder="Type*" onChange={(e)=>{this.setState({type:e.target.value});console.log(this.state)}} data-form-field="Email"/>

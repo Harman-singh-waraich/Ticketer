@@ -61,10 +61,10 @@ class UserItems extends React.Component{
           <List.Item>
             <List.Item.Meta
               avatar={<Avatar src={ticket} />}
-              title={<Title level={3} style={{marginBottom:"10px"}}
+              title={<a><Title level={3} style={{marginBottom:"10px"}}
                             onClick={()=>{this.props.itemDetailed(item)}}>
                                 {item._name}
-                            </Title>}
+                            </Title></a>}
               description= {<Paragraph strong><Time _time={item._dated}/></Paragraph>}
               />
             </List.Item>

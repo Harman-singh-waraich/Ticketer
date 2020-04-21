@@ -33,8 +33,8 @@ contract Redeem{
       require(msg.sender == owner);
       _;
   }
-  modifier itemOwner(Item memory _item){
-    require(msg.sender== _item.itemOwner,"you are not allowed");
+  modifier itemOwner(Item memory _item,address _address){
+    require(_address== _item.itemOwner,"you are not allowed");
     _;
   }
   event TokenPurchased(
@@ -87,7 +87,7 @@ contract Redeem{
     return allItems;
   }
 
-  function getCredentials(Item memory _item) view  public itemOwner(_item) returns(string memory) {
+  function getCredentials(Item memory _item,address _address) view  public itemOwner(_item,_address) returns(string memory) {
     return (credentials[_item._hash]);
   }
 
