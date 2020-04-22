@@ -89,7 +89,7 @@ class Reddit extends React.Component{
     }
 
     getCredentials = async (item) =>{
-      let credentials = await this.state.Redeem.methods.getCredentials(item,this.state.account).call()
+      let credentials = await this.state.Redeem.methods.getCredentials(item).call({from:this.state.account})
       return credentials
     }
 
