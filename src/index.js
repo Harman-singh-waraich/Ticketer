@@ -104,8 +104,6 @@ class Reddit extends React.Component{
   }
 
   updater = setInterval(async ()=>{
-    let p_account =this.state.account
-    let n_account = await window.web3.eth.getAccounts()
     let self = this;
     window.ethereum.on('accountsChanged', function (accounts) {
       window.location.reload();
@@ -124,7 +122,9 @@ class Reddit extends React.Component{
     this.state.Redeem.methods.welcomeToken().send({from:this.state.account,gas:200000}).then(()=>{
       this.getBalance()
       this.setState({loading:false})
-    })
+    }).catch((e)=>{
+      alert(e.message)
+      this.setState({loading:false})})
   }
 
   increaseCount=()=>{
@@ -146,7 +146,9 @@ class Reddit extends React.Component{
         alert(e.message)
         this.setState({loading:false})
       })
-		})
+		}).catch((e)=>{
+      alert(e.message)
+      this.setState({loading:false})})
 	}
 
 

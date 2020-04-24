@@ -1,12 +1,9 @@
 import ticket from './ticketcut.png';
 import redeemBack from "../img/redeemBack.jpg"
-import { List, Card,Typography ,Popconfirm,Popover,Descriptions,Button} from 'antd';
+import { List} from 'antd';
 import React from "react";
 import reactDOM from "react-dom";
-const { Meta } = Card;
-const {Title} = Typography;
-
-
+import './redeemItem.css';
 
 class Items extends React.Component{
   constructor(props){
@@ -57,32 +54,15 @@ class Items extends React.Component{
                 grid={{ gutter: 40, column: 4 }}
                 dataSource= {this.state.items}
                 renderItem={item => (
-                  <List.Item>
-                  <Popover content={
-                    <div>
-                    <Descriptions  bordered>
-                      <Descriptions.Item label="Type" span={3}>{item._type}</Descriptions.Item>
-                      <Descriptions.Item label="Amount" span={3}>{`${item._price} TOK`}</Descriptions.Item>
-                      <Descriptions.Item label="Dated" span={3}><Time _time={item._dated}/></Descriptions.Item>
-                    </Descriptions>
-
-                    <Popconfirm title="Do you want to redeem？"
-                                okText="Yes" cancelText="No"
-                                onConfirm={()=>{this.redeemItem(item._name)}}>
-                       <Button type="primary"style={{float:"right"}} >Redeem</Button>
-                    </Popconfirm>
-                    </div>} placement="bottom" trigger="hover">
-
-
-                       <Card
-                        hoverable
-                        style={{width: 150,background:"transparent",color:"#fff",height:"250px" }}
-                        cover={<img alt="example" src= {ticket} style={{width:"150px",height:"150px"}}/>}
-                      >
-                            <Meta title={<Title level={3} style={{color:"#fff",marginBottom:"10px"}}>{item._name}</Title>} style={{color:"#fff"}} />
-                       </Card>
-                  </Popover>
-                  </List.Item>
+                  <div class="card" >
+          <img src={ticket} alt="Avatar" style={{width:"200px",height:"200px"}}/>
+          <div class="container">
+            <h4><b>{item._name}</b></h4>
+            <p>Dated: <Time _time={item._dated}/>
+               Price: {item._price} TOK</p>
+            <button class="button" onClick={()=>{this.redeemItem(item._name);}}>Redeem</button>
+          </div>
+        </div>
                 )}
               />
             </div>
@@ -122,6 +102,7 @@ class Time extends React.Component{
       var utcSeconds = this.props._time;
       var d = new Date(0);
       d.setUTCSeconds(utcSeconds);
-      return <p>{`${d}`}</p>
+      var b = d.toString()
+      return `${b.slice(0,16)}`
     }
   }

@@ -28,7 +28,7 @@
                                               background:`url(${redeemBack})`})}}/>
           <span onClick={()=> {this.setState({Content:<Items account = {this.props.account}
                                                              getItem={this.props.getItem}
-                                                             getItems={this.props.getItems}
+                            -                                 getItems={this.props.getItems}
                                                              redeemItem={this.props.redeemItem}
                                                              buyToken={this.props.buyToken}
                                                              getAllItems = {this.props.getAllItems}
@@ -159,3 +159,30 @@ render(){
   return <p>{`${d}`}</p>
 }
 }
+//////////////////////
+<List.Item>
+<Popover content={
+  <div>
+  <Descriptions  bordered>
+    <Descriptions.Item label="Type" span={3}>{item._type}</Descriptions.Item>
+    <Descriptions.Item label="Amount" span={3}>{`${item._price} TOK`}</Descriptions.Item>
+    <Descriptions.Item label="Dated" span={3}><Time _time={item._dated}/></Descriptions.Item>
+  </Descriptions>
+
+  <Popconfirm title="Do you want to redeem？"
+              okText="Yes" cancelText="No"
+              onConfirm={()=>{this.redeemItem(item._name)}}>
+     <Button type="primary"style={{float:"right"}} >Redeem</Button>
+  </Popconfirm>
+  </div>} placement="bottom" trigger="hover">
+
+
+     <Card
+      hoverable
+      style={{width: 150,background:"transparent",color:"#fff",height:"250px" }}
+      cover={<img alt="example" src= {ticket} style={{width:"150px",height:"150px"}}/>}
+    >
+          <Meta title={<Title level={3} style={{color:"#fff",marginBottom:"10px"}}>{item._name}</Title>} style={{color:"#fff"}} />
+     </Card>
+</Popover>
+</List.Item>

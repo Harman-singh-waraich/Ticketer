@@ -1,5 +1,4 @@
 import React from "react";
-import reactDOM from "react-dom";
 
 class ItemForm extends React.Component  {
  constructor(props){

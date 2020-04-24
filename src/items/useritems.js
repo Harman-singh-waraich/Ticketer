@@ -1,24 +1,8 @@
 import React from "react";
-import reactDOM from "react-dom";
 import green from './green.png'
-import { List, Avatar,Typography } from 'antd';
-import ticket from './ticket.jpg'
+import { List, Typography } from 'antd';
 const {Title,Paragraph} = Typography;
 
-const data = [
-  {
-    title: 'Ant Design Title 1',
-  },
-  {
-    title: 'Ant Design Title 2',
-  },
-  {
-    title: 'Ant Design Title 3',
-  },
-  {
-    title: 'Ant Design Title 4',
-  },
-];
 class Time extends React.Component{
     constructor(props){
       super(props)
@@ -52,19 +36,18 @@ class UserItems extends React.Component{
     this.setState({userItems:userItems})
   }
   render(){
-  return <div style={{background:`url(${green})`,height:"85vh"}}>
+  return <div style={{background:`url(${green})`,height:"100vh"}}>
       <List
-        style={{paddingTop:"80px",paddingLeft:"20px",backgroundImage:`${green}`}}
+        style={{paddingTop:"100px",paddingLeft:"20px",backgroundImage:`${green}`}}
         itemLayout="horizontal"
         dataSource={this.state.userItems}
         renderItem={item => (
           <List.Item>
             <List.Item.Meta
-              avatar={<Avatar src={ticket} />}
-              title={<a><Title level={3} style={{marginBottom:"10px"}}
+              title={<Title level={3} style={{marginBottom:"10px",color:"black",cursor:"pointer"}}
                             onClick={()=>{this.props.itemDetailed(item)}}>
                                 {item._name}
-                            </Title></a>}
+                            </Title>}
               description= {<Paragraph strong><Time _time={item._dated}/></Paragraph>}
               />
             </List.Item>
