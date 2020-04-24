@@ -33,14 +33,13 @@ class Reddit extends React.Component{
 			 window.accounts = await window.web3.eth.getAccounts();
 			 console.log(window.accounts);
 			 this.setState({account:window.accounts[0]})
-
-			 const redeem_address = redeem.networks["5777"].address;
-			 const Token = await new window.web3.eth.Contract(token.abi,token.networks["5777"].address);
+       const networkId = await window.web3.eth.net.getId()
+			 const redeem_address = redeem.networks[networkId].address;
+			 const Token = await new window.web3.eth.Contract(token.abi,token.networks[networkId].address);
 			 this.setState({Token})
 
 		 	 const Redeem = await new window.web3.eth.Contract(redeem.abi,redeem_address);
 			 this.setState({Redeem})
-				console.log(this.state);
 				this.setState({loading:false})
 	}
 

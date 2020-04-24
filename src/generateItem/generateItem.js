@@ -21,7 +21,7 @@ render(){
       <div class="container">
           <div class="row">
               <div class="col-sm-8 col-sm-offset-2" data-form-type="formoid">
-                  <h2 class="mbr-section-title display-3 text-xs-center">Generate Item</h2>
+                  <h2 class="mbr-section-title display-3 text-xs-center" style={{weight:"700"}}>Generate Item</h2>
                   <form onSubmit={(e)=>{e.preventDefault();this.onFinish()}}  data-form-title="Contact Form">
                       <input type="hidden" value="vPqJgzEG8OpSx8y1t6d9Lgg2QZAEVdNvw6pIc4vG7zVNpULUhRssbI1oKUNRiptQHahqyr52nH8tEDGhUtZydb0dzJ/kM7BCWRsVKLhFl5WagqDxGqU5EW5GetjF0LQr" data-form-email="true"/>
                       <div class="form-group">

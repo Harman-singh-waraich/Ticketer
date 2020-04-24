@@ -113,6 +113,8 @@ contract Redeem{
 
   function redeemItem(string memory  _name, address _address) public {
     uint price = Items[_name]._price;
+    require(token.balanceOf(_address)>= price);
+
     Item storage item = Items[_name];
     require(item.isAvailable,"item not available");
     item.itemOwner = _address;
