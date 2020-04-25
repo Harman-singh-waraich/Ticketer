@@ -1,0 +1,18 @@
+.connectButton {
+  background-color: white;
+color: black;
+border: 2px solid black;
+  transition-duration: 0.4s;
+  height: 30px;
+  width:100px;
+  float: right;
+  padding: 0px 0px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+}
+.connectButton:hover {
+  background-color: black; /* Green */
+  color: white;
+}

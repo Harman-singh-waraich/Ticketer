@@ -24,16 +24,16 @@ render(){
                   <form onSubmit={(e)=>{e.preventDefault();this.onFinish()}}  data-form-title="Contact Form">
                       <input type="hidden" value="vPqJgzEG8OpSx8y1t6d9Lgg2QZAEVdNvw6pIc4vG7zVNpULUhRssbI1oKUNRiptQHahqyr52nH8tEDGhUtZydb0dzJ/kM7BCWRsVKLhFl5WagqDxGqU5EW5GetjF0LQr" data-form-email="true"/>
                       <div class="form-group">
-                          <input type="text" class="form-control" name="name" required="" placeholder="Name of item*" onChange={(e)=>{this.setState({name:e.target.value});console.log(this.state)}} data-form-field="Name"/>
+                          <input type="text" class="form-control" name="name" required="" placeholder="Name of item*" onChange={(e)=>{this.setState({name:e.target.value})}} data-form-field="Name"/>
                       </div>
                       <div class="form-group">
-                          <input type="text" class="form-control" name="type" required="" placeholder="Type*" onChange={(e)=>{this.setState({type:e.target.value});console.log(this.state)}} data-form-field="Email"/>
+                          <input type="text" class="form-control" name="type" required="" placeholder="Type*" onChange={(e)=>{this.setState({type:e.target.value})}} data-form-field="Email"/>
                       </div>
                       <div class="form-group">
-                          <input type="tel" class="form-control" name="price" placeholder="Price" onChange={(e)=>{this.setState({price:e.target.value});console.log(this.state)}} data-form-field="Phone"/>
+                          <input type="tel" class="form-control" name="price" placeholder="Price" onChange={(e)=>{this.setState({price:e.target.value})}} data-form-field="Phone"/>
                       </div>
                       <div class="form-group">
-                          <textarea class="form-control" name="description" rows="7" placeholder="Description" onChange={(e)=>{this.setState({description:e.target.value});console.log(this.state)}}data-form-field="Message"></textarea>
+                          <textarea class="form-control" name="description" rows="7" placeholder="Description" onChange={(e)=>{this.setState({description:e.target.value})}}data-form-field="Message"></textarea>
                       </div>
                       <div class="text-xs-right"><button type="submit" class="btn btn-secondary-outline">Generate</button></div>
                   </form>

@@ -1,11 +1,11 @@
 import React from "react";
 import Main from "./main.js"
-import "./ant.css"
 import reactDOM from "react-dom";
 import 	Web3 from 'web3';
 import redeem from "./abis/Redeem.json";
 import token from "./abis/Token.json";
 var Spinner = require('react-spinkit');
+var connected = false
 class Reddit extends React.Component{
 
  constructor(props){
@@ -13,21 +13,29 @@ class Reddit extends React.Component{
 
 	 	this.state={
 		 	account: "na",
-			loading:true,
+			loading:false,
 			Token:"",
 			Redeem:"",
       buyView:true,
-      newItem:0
+      newItem:0,
+      connected:connected
 	 	};
- }
-
- 	async componentWillMount(){
-	 	await this.LoadWeb3();
-	 	await this.LoadBlockchainData();
-    await this.getBalance();
+     this.connectToWeb3=this.connectToWeb3.bind(this)
 
  }
 
+  async connectToWeb3(){
+    if(this.state.connected){
+      window.alert("connected")
+      this.setState({loading:false})
+    }else{
+      this.setState({loading:true})
+      await this.LoadWeb3();
+      await this.LoadBlockchainData();
+      await this.getBalance();
+    }
+
+  }
 	async  LoadBlockchainData(){
 
 			 window.accounts = await window.web3.eth.getAccounts();
@@ -40,6 +48,8 @@ class Reddit extends React.Component{
 
 		 	 const Redeem = await new window.web3.eth.Contract(redeem.abi,redeem_address);
 			 this.setState({Redeem})
+        this.setState({connected:true})
+        window.connected = true
 				this.setState({loading:false})
 	}
 
@@ -47,9 +57,11 @@ class Reddit extends React.Component{
 		if(window.ethereum){
 			window.web3 = new Web3(window.ethereum)
 			await window.ethereum.enable()
+      connected=true
 		}
 		else if(window.web3){
 			window.web3 = new Web3(window.web3.currentProvider)
+      connected=true
 		}
 		else{
 			window.alert("metamask not installed")
@@ -174,7 +186,9 @@ else{
                   welcomeToken ={this.welcomeToken}
                   offerValid = {this.offerValid}
                   count = {this.state.newItem}
-                  resetCount={this.resetCount}/>
+                  resetCount={this.resetCount}
+                  connected={this.state.connected}
+                  connectToWeb3={this.connectToWeb3}/>
 }
 return   <div>
            {content}

@@ -6,7 +6,7 @@ import UserItems from './items/useritems.js';
 import Items from './Redeem/redeemItem.js';
 import Demo from './items/itemDetailed.js';
 import user from "./user.png"
-
+import "./connectButton.css"
 
 
 class Main extends React.Component {
@@ -15,7 +15,9 @@ class Main extends React.Component {
      super(props)
      this.state = {
        collapsed: false,
-       Content:<Home explore={this.explore}  generate={this.generate} redeem={this.redeem}/>
+       Content:<Home explore={this.explore}
+                     generate={this.generate}
+                     redeem={this.redeem}/>
      };
    }
   balance = ()=>{
@@ -55,7 +57,11 @@ class Main extends React.Component {
                                                       account={this.props.account}/>})
 
   }
-
+ connectButton=()=>{
+    if(!this.props.connected){
+      return <div style={{float:"right"}}><button class="connectButton" onClick={()=>this.props.connectToWeb3()}>ConnectWeb3</button></div>
+    }
+  }
   render(){
 
     const Img = (<img src={user} />)
@@ -75,6 +81,7 @@ class Main extends React.Component {
                 <ul class="nav navbar-nav pull-xs-right"><li class="nav-item"style={{cursor:"pointer"}}><a class="nav-link" onClick={()=>{this.home()}} ><span class="mbri-home mbr-iconfont mbr-iconfont-btn-parent" ></span>Home</a></li><li class="nav-item" style={{cursor:"pointer"}}><a class="nav-link" onClick={()=>{this.generate()}}><span class="mbri-credit-card mbr-iconfont mbr-iconfont-btn-parent" ></span>Generate</a></li> <li class="nav-item" style={{cursor:"pointer"}}><a class="nav-link" onClick={this.redeem}><span class="mbri-shopping-bag mbr-iconfont mbr-iconfont-btn-parent" ></span>Redeem</a></li>  </ul>
             </div>
         </div>
+        {this.connectButton()}
     </nav>
 
     <section  className="site-layout-background-content"   style={{
