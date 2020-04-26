@@ -92,7 +92,7 @@ class Home extends React.Component{
                 <div class="col-sm-4">
                     <h2 class="mbr-section-title h1">Get In Touch</h2>
                 </div>
-                <div class="col-sm-8 text-xs-right">       <a class="btn btn-social socicon-bg-linkedin" title="LinkedIn" target="_blank" href="https://www.linkedin.com/in/mobirise"><i class="socicon socicon-linkedin"></i></a> </div>
+                <div class="col-sm-8 text-xs-right">       <a class="btn btn-social socicon-bg-linkedin" title="LinkedIn" target="_blank" href="https://www.linkedin.com/in/harmeet-singh-b45b11190"><i class="socicon socicon-linkedin"></i></a> </div>
             </div>
         </div>
     </section>
@@ -113,7 +113,7 @@ class Home extends React.Component{
     Phone: +1 (0) 000 0000 001<br/>
     Fax: +1 (0) 000 0000 002</p>
                 </div>
-                <div class="col-xs-12 col-md-3"><strong>Links</strong><ul><li>Github</li><li>Mobirise</li></ul></div>
+                <div class="col-xs-12 col-md-3"><strong>Links</strong><ul><li><a href="https://github.com/Harman-singh-waraich/Ticketer">Github</a></li></ul></div>
             </div>
         </div>
     </section>

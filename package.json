@@ -12,6 +12,7 @@
     "babel-plugin-import": "^1.13.0",
     "bootstrap": "^4.4.1",
     "customize-cra": "^0.9.1",
+    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "halogen": "^0.2.0",
     "identicon": "^3.0.1",
